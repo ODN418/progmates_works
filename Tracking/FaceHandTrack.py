@@ -16,7 +16,7 @@ pTime = 0
 
 mpHands = mp.solutions.hands
 hands = mpHands.Hands(static_image_mode=False,
-                      max_num_hands=2,
+                      max_num_hands=4,
                       min_detection_confidence=0.5,
                       min_tracking_confidence=0.5)
 mpDraw = mp.solutions.drawing_utils
