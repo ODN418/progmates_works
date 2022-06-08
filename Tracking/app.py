@@ -7,13 +7,13 @@ keras_param = "./cnn.h5"
 model = load_model(keras_param)
 
 while True:
-    ret, frame = cap.read()
+    # ret, frame = cap.read()
 
-    prd = model.predict(np.array([frame]))
-    prelabel = np.argmax(prd, axis=1)
-    if prelabel == 0:
-        text = 'p'
-        font = cv2.FONT_HERSHEY_PLAIN
+    # prd = model.predict(np.array([frame]))
+    # prelabel = np.argmax(prd, axis=1)
+    # if prelabel == 0:
+    #     text = 'p'
+    #     font = cv2.FONT_HERSHEY_PLAIN
                 
     # 表示
     cv2.imshow("Show FLAME Image", frame) 
