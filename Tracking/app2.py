@@ -1,25 +1,35 @@
 import cv2
+import sys, os
 from keras.models import load_model
 import numpy as np
+
 cap = cv2.VideoCapture(0) #読み込む動画のパス
 fps = cap.get(cv2.CAP_PROP_FPS)
 
-# keras_param = "./cnn.h5"
-# model = load_model(keras_param)
-model = load_model("cnn.h5")
+
+keras_param = "C:/Users/cs18017/Documents/progmates/progmates_works/Tracking/cnn.h5"
+model = load_model(keras_param)
 # https://www.tensorflow.org/guide/keras/save_and_serialize?hl=ja
-#avg = None
+
 
 while True:
     # 1フレームずつ取得する。
-    success, img = cap.read()
-
+    success, frame = cap.read()
+    if not success:
+            break
     # ↓任意の処理をここに書く↓ 
     # 白黒画像に
+    frame = cv2.resize(frame, (800, 600))
+    prd = model.predict(np.array([frame]))
+    prelabel = np.argmax(prd, axis=1)
+    if prelabel == 0:
+        print(">>> 犬")
+    elif prelabel == 1:
+        print(">>> 猫")
     # フィルターをセット
     # ↑任意の処理をここに書く↑
 
-    cv2.imshow("Image", img)
+    cv2.imshow("img", frame)
 
     key = cv2.waitKey(30)
     if key == 27:

@@ -3,12 +3,10 @@ from keras.models import load_model
 import numpy as np
 cap = cv2.VideoCapture(0)
 
-keras_param = "./cnn.h5"
-model = load_model(keras_param)
 
 while True:
-    # ret, frame = cap.read()
-
+    ret, frame = cap.read()
+    frame = cv2.resize(frame, (800, 600))
     # prd = model.predict(np.array([frame]))
     # prelabel = np.argmax(prd, axis=1)
     # if prelabel == 0:
