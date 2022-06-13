@@ -18,15 +18,13 @@ while True:
     if not success:
             break
     # ↓任意の処理をここに書く↓ 
-    # 白黒画像に
-    frame = cv2.resize(frame, (800, 600))
+    frame = cv2.resize(frame, (64, 64))
     prd = model.predict(np.array([frame]))
     prelabel = np.argmax(prd, axis=1)
     if prelabel == 0:
         print(">>> 犬")
     elif prelabel == 1:
         print(">>> 猫")
-    # フィルターをセット
     # ↑任意の処理をここに書く↑
 
     cv2.imshow("img", frame)
