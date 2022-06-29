@@ -26,8 +26,9 @@ while True:
     elif prelabel == 1:
         print(">>> 猫")
     # ↑任意の処理をここに書く↑
+    resized_frame = cv2.resize(frame,(800, 600))
 
-    cv2.imshow("img", frame)
+    cv2.imshow("img", resized_frame)
 
     key = cv2.waitKey(30)
     if key == 27:
