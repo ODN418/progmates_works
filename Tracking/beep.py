@@ -3,7 +3,7 @@ import mediapipe as mp
 import winsound
 
 #ビープ音1000Hz 吹鳴時間100ms
-freq = 2000
+freq = 1000
 delay = 100
  
 # カメラ解像度の設定
@@ -35,8 +35,10 @@ with mp_face_detection.FaceDetection(model_selection=0, min_detection_confidence
         if results.detections:
             for detection in results.detections:
                 mp_drawing.draw_detection(image, detection)
+
             #顔が検出されたらビープ音
             winsound.Beep(freq, delay)
+
         cv2.imshow("Img",image)
 
         key = cv2.waitKey(1)
