@@ -7,7 +7,7 @@ tools = pyocr.get_available_tools()
 tool = tools[0]
  
 # 画像の読み込み
-img_org = Image.open("test.png")
+img_org = Image.open("test1.png")
  
 # OCRの実行
 builder = pyocr.builders.TextBuilder()
