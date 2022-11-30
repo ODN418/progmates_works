@@ -14,3 +14,6 @@ builder = pyocr.builders.TextBuilder()
 result = tool.image_to_string(img_org, lang="jpn", builder=builder)
  
 print(result)
+
+# import os
+# print(os.getcwd())

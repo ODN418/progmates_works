@@ -18,7 +18,7 @@ tool = tools[0]
 builder = pyocr.builders.TextBuilder(tesseract_layout=6)
 
 #解析画像読み込み
-img = Image.open('OCR/test1.png') #他の拡張子でもOK
+img = Image.open('OCR/test2.jpg') #他の拡張子でもOK
 
 #適当に画像処理(何もしないと結構制度悪いです・・)
 img_g = img.convert('L') #Gray変換
